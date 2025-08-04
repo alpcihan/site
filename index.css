@@ -1,0 +1,40 @@
+.intro {
+  font-size: 16px;
+  color: var(--secondary-text);
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.name-section {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-icon {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon:hover {
+  color: var(--primary-text);
+}
+
+.social-icon svg {
+  width: 16px;
+  height: 16px;
+}
