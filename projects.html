@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Alp Cihan</title>
+  <meta name="description" content="Projects by Alp Cihan">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="/" class="name-link"><h1 class="name">Alp Cihan</h1></a>
+      <span class="current-page">projects</span>
+    </header>
+    
+    <div class="projects-grid" id="projects-container">
+    </div>
+
+    <script>
+      const projects = [
+        {
+          title: "WTrace",
+          url: "https://github.com/alpcihan/project-one",
+          image: "/images/project-wtrace-00.jpg",
+          description: "Real-time path tracing library for web.",
+          technologies: ["WebGPU", "WGSL", "TypeScript", "Node.js"]
+        },
+        {
+          title: "Hybrid", 
+          url: "https://github.com/alpcihan/project-two",
+          image: "https://private-user-images.githubusercontent.com/37274614/311037448-7ca57586-db50-403f-b7db-1b28ac30b158.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTQzMTcxODEsIm5iZiI6MTc1NDMxNjg4MSwicGF0aCI6Ii8zNzI3NDYxNC8zMTEwMzc0NDgtN2NhNTc1ODYtZGI1MC00MDNmLWI3ZGItMWIyOGFjMzBiMTU4LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA4MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwODA0VDE0MTQ0MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWYzNmMwZDlmYTBkNzhkMzcxZTE1OWE1ZjI2ZThhOWE4ZTZmYjIyZjNiOWY4ZDdjMGRkY2JlZGM1NWFhNDM5ZDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.4IzPsNvFWun-cDB-flJ3Yg-aSwaeg86nrJ_q4FOscVE",
+          description: "-",
+          technologies: ["C++", "Vulkan", "CMake"]
+        },
+        {
+          title: "ARkonoid",
+          url: "https://github.com/alpcihan/project-three",
+          image: "https://user-images.githubusercontent.com/37274614/179810967-151b7dd1-6f5a-4313-be69-b0b84df71504.png", 
+          description: "-",
+          technologies: ["C++", "OpenGL", "CMake"]
+        }
+      ];
+
+      function createProjectElement(project) {
+        const techTags = project.technologies.map(tech => 
+          `<span class="tech-tag">${tech}</span>`
+        ).join('');
+
+        return `
+          <div class="project">
+            <h2 class="project-title">
+              <a href="${project.url}" target="_blank">${project.title}</a>
+            </h2>
+            <div class="project-image">
+              <a href="${project.url}" target="_blank">
+                <img src="${project.image}" alt="${project.title}" loading="lazy">
+              </a>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                ${project.description}
+              </p>
+              <div class="project-tech">
+                ${techTags}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderProjects() {
+        const container = document.getElementById('projects-container');
+        const projectsHTML = projects.map(createProjectElement).join('');
+        container.innerHTML = projectsHTML;
+      }
+
+      document.addEventListener('DOMContentLoaded', renderProjects);
+    </script>
+  </div>
+</body>
+</html>
